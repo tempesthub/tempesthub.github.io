@@ -8,8 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
   
   <meta property="og:title" content="Tempest Hub" />
-  <meta property="og:description" content="Roblox script built for tsb techs. Skip the bs." />
-  <meta property="og:image" content="https://10tempest01.github.io/images/script_image@2x.png" />
+  <meta property="og:description" content="Cybersecurity Professionals from the Kingdom of Saudi Arabia./>
+  <meta property="og:image" content="https://10tempest01.github.io/images/monsoon.png" />
   <meta property="og:url" content="https://10tempest01.github.io/" />
   
   <style>
@@ -20,14 +20,15 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0a0f1c, #111827);
+      background: linear-gradient(135deg, #0a0f1c, #00243d);
       color: #dbeafe;
       font-family: 'Montserrat', sans-serif;
-      height: 100vh;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 1s ease-in-out;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh;
+      justify-content: center; /* Center content vertically */
+      align-items: center; /* Center content horizontally */
     }
 
     @keyframes fadeIn {
@@ -41,8 +42,9 @@
       justify-content: space-between;
       width: 50%;
       max-width: 1000px;
-      gap: 1.0rem;
+      gap: 1rem;
       animation: slideIn 1s ease-out;
+	  flex-grow: 1; /* Ensures the content takes up the remaining space */
     }
 
     @keyframes slideIn {
@@ -116,10 +118,10 @@
     }
 
     .right {
-      flex: 1.4;
+      flex: 1.2;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: right;
+      align-items: right;
       animation: fadeInRight 1s ease-in-out;
     }
 
@@ -163,7 +165,20 @@
       top: 0;
       transform: translateX(-50%);
     }
+	
+	footer {
+	  text-align: center;
+	  color: #64748b;
+	  font-size: 0.85rem;
+	  margin-top: auto;
+	  padding: 1rem;
+	  background-color: transparent; /* or a color you prefer */
+	}
 
+	footer p {
+	  margin: 5px 0;
+	}
+	
     /* Mobile Media Query */
     @media (max-width: 500px) {
       .container {
@@ -171,6 +186,7 @@
         text-align: center;
         gap: 2rem;
       }
+	  
     }
   </style>
 </head>
@@ -178,7 +194,7 @@
   <div class="container">
     <div class="left">
       <h1>Tempest Hub</h1>
-      <p>Roblox script built for tsb techs.<br />Skip the bs.</p>
+      <p>Roblox script built for TSB techs.<br />Powered by Rayfield.</p>
       <div class="buttons">
         <button class="btn btn-primary" id="copy-btn">Get the Script</button>
         <button class="btn btn-secondary" onclick="window.open('https://discord.gg/ewjaP4Q8dw', '_blank')">Join the Discord</button>
@@ -191,6 +207,11 @@
       </div>
     </div>
   </div>
+	
+<footer>
+  <p style="font-size: 0.8rem; font-weight: bold;">Cybersecurity Professionals from the Kingdom of Saudi Arabia</p>
+  <p style="font-size: 0.85rem;">© 2025 Tempest Softworks LLC. All rights reserved.</p>
+</footer>
 
   <!-- Floating Notification -->
   <div id="copy-toast">✅ Script copied</div>
