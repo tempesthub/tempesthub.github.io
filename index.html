@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tempest Hub</title>
   <link rel="icon" href="images/favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
-  
+
   <meta property="og:title" content="Tempest Hub" />
-  <meta property="og:description" content="Cybersecurity Professionals from the Kingdom of Saudi Arabia./>
-  <meta property="og:image" content="https://10tempest01.github.io/images/monsoon.png" />
+  <meta property="og:description" content="Cybersecurity Professionals from the Kingdom of Saudi Arabia.">
+  <meta property="og:image"
+    content="https://raw.githubusercontent.com/10tempest01/10tempest01.github.io/refs/heads/main/images/monsoon.png" />
   <meta property="og:url" content="https://10tempest01.github.io/" />
-  
+
   <style>
     * {
       margin: 0;
@@ -20,20 +22,25 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0a0f1c, #00243d);
+      background: linear-gradient(135deg, #0a0f1c, #002138);
       color: #dbeafe;
       font-family: 'Montserrat', sans-serif;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       min-height: 100vh;
-      justify-content: center; /* Center content vertically */
-      align-items: center; /* Center content horizontally */
+      justify-content: center;
+      align-items: center;
     }
 
     @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
     }
 
     .container {
@@ -43,13 +50,18 @@
       width: 50%;
       max-width: 1000px;
       gap: 1rem;
-      animation: slideIn 1s ease-out;
-	  flex-grow: 1; /* Ensures the content takes up the remaining space */
+      animation: slideIn 1s ease-out, fadeIn 1.5s ease-in;
+      flex-grow: 1;
     }
 
     @keyframes slideIn {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(0); }
+      0% {
+        transform: translateX(-50%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
     }
 
     .left {
@@ -72,7 +84,7 @@
       color: #93c5fd;
       line-height: 1.5;
     }
-    
+
     .buttons {
       display: flex;
       gap: 0.75rem;
@@ -144,11 +156,17 @@
     }
 
     @keyframes fadeInImage {
-      0% { opacity: 0; transform: scale(0.8); }
-      100% { opacity: 1; transform: scale(1); }
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
-    /* Notification Styles */
     #copy-toast {
       position: fixed;
       background-color: #10b981;
@@ -165,31 +183,32 @@
       top: 0;
       transform: translateX(-50%);
     }
-	
-	footer {
-	  text-align: center;
-	  color: #64748b;
-	  font-size: 0.85rem;
-	  margin-top: auto;
-	  padding: 1rem;
-	  background-color: transparent; /* or a color you prefer */
-	}
 
-	footer p {
-	  margin: 5px 0;
-	}
-	
-    /* Mobile Media Query */
+    footer {
+      text-align: center;
+      color: #64748b;
+      font-size: 0.85rem;
+      margin-top: auto;
+      padding: 1rem;
+      background-color: transparent;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
     @media (max-width: 500px) {
       .container {
         flex-direction: column;
         text-align: center;
         gap: 2rem;
       }
-	  
+
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="left">
@@ -197,7 +216,8 @@
       <p>Roblox script built for TSB techs.<br />Powered by Rayfield.</p>
       <div class="buttons">
         <button class="btn btn-primary" id="copy-btn">Get the Script</button>
-        <button class="btn btn-secondary" onclick="window.open('https://discord.gg/ewjaP4Q8dw', '_blank')">Join the Discord</button>
+        <button class="btn btn-secondary" onclick="window.open('https://discord.gg/ewjaP4Q8dw', '_blank')">Join the
+          Discord</button>
       </div>
       <div class="credit">Created by Tempest (@10.tempest.01)<br />Managed by ExP (@expfa)</div>
     </div>
@@ -207,11 +227,11 @@
       </div>
     </div>
   </div>
-	
-<footer>
-  <p style="font-size: 0.8rem; font-weight: bold;">Cybersecurity Professionals from the Kingdom of Saudi Arabia</p>
-  <p style="font-size: 0.85rem;">© 2025 Tempest Softworks LLC. All rights reserved.</p>
-</footer>
+
+  <footer>
+    <p style="font-size: 0.8rem; font-weight: bold;">Cybersecurity Professionals from the Kingdom of Saudi Arabia</p>
+    <p style="font-size: 0.85rem;">© 2025 Tempest Softworks LLC. All rights reserved.</p>
+  </footer>
 
   <!-- Floating Notification -->
   <div id="copy-toast">✅ Script copied</div>
@@ -226,20 +246,18 @@
 
         if (navigator.clipboard) {
           navigator.clipboard.writeText(script).then(() => {
-            // Ensure that the toast element is found
             if (toast && copyBtn) {
               const rect = copyBtn.getBoundingClientRect();
-              const x = rect.left + (rect.width / 2); // center horizontally on the button
-              const y = rect.top - 40; // position above the button
+              const x = rect.left + (rect.width / 2);
+              const y = rect.top - 40;
 
-              // position the toast
               toast.style.left = `${x}px`;
               toast.style.top = `${y}px`;
-              toast.style.transform = 'translateX(-50%)'; // center the toast above the button
+              toast.style.transform = 'translateX(-50%)';
               toast.style.opacity = '1';
 
               setTimeout(() => {
-                toast.style.opacity = '0'; // Fade out after 2 seconds
+                toast.style.opacity = '0';
               }, 2000);
             }
           }).catch((err) => {
@@ -251,9 +269,9 @@
         }
       }
 
-      // Attach the copyScript function to the button click event
       copyBtn.addEventListener('click', copyScript);
     });
   </script>
 </body>
+
 </html>
