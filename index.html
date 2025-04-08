@@ -11,8 +11,8 @@
   <meta property="og:title" content="Tempest Hub" />
   <meta property="og:description" content="Cybersecurity Professionals from the Kingdom of Saudi Arabia.">
   <meta property="og:image"
-    content="https://raw.githubusercontent.com/10tempest01/10tempest01.github.io/refs/heads/main/images/monsoon.png" />
-  <meta property="og:url" content="https://10tempest01.github.io/" />
+    content="https://raw.githubusercontent.com/tempesthub/tempesthub.github.io/refs/heads/main/images/monsoon.png" />
+  <meta property="og:url" content="https://tempest-hub.com/" />
 
   <style>
     * {
@@ -22,15 +22,25 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0a0f1c, #002138);
+      background: linear-gradient(135deg, #0a0f1c, #002138, #001524);
+      background-size: 400% 400%;
+      animation: bgMove 15s ease infinite;
       color: #dbeafe;
       font-family: 'Montserrat', sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      min-height: 100vh;
       justify-content: center;
       align-items: center;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     @keyframes fadeIn {
@@ -43,20 +53,9 @@
       }
     }
 
-    .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 50%;
-      max-width: 1000px;
-      gap: 1rem;
-      animation: slideIn 1s ease-out, fadeIn 1.5s ease-in;
-      flex-grow: 1;
-    }
-
-    @keyframes slideIn {
+    @keyframes slideInRight {
       0% {
-        transform: translateX(-50%);
+        transform: translateX(-10%);
       }
 
       100% {
@@ -64,19 +63,256 @@
       }
     }
 
+    @keyframes slideInLeft {
+      0% {
+        transform: translateX(10%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(50%);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInButtons {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+        /* Navigation bar styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background-color: transparent;
+      padding: 1rem;
+      z-index: 1000;
+    }
+
+    .navbar button {
+      box-shadow: 0 0 8px rgba(0, 153, 255, 0.5);
+      background: none;
+      border: 2px solid #3b82f6;
+      color: #3b82f6;
+      font-family: 'Montserrat', sans-serif;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+      margin: 0 1rem;
+    }
+
+    .navbar button.selected {
+      background-color: rgba(0, 47, 80, 0.61)
+    }
+
+    .navbar button:hover {
+      background-color: rgba(0, 117, 201, 0.1);
+      transform: scale(1.1)
+    }
+    
+
+    h2 {
+      text-shadow: 0 0 8px rgba(0, 153, 255, 0.5);
+      font-size: 2rem;
+      justify-content: center;
+      font-weight: 700;
+      color: #0075C9; /* Same blue as others */
+      margin-bottom: 1rem;
+    }
+
+    .donation-container {
+      flex-direction: column; /* Stack donation options vertically */
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: slideInLeft 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .donation-option {
+      box-shadow: 0 0px 15px rgba(0, 153, 255, 0.5);
+      margin: 2rem;
+      padding: 1.5em;
+      border-radius: 10px;
+      border: 2px solid #0075C9;
+    }
+
+    #cryptos {
+      animation: slideInRight 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    #others {
+      animation: slideInLeft 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .crypto-dropdown {
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid #0075C9;
+      margin: 10px 0;
+      background-color: #1e293b; /* Set background color to match your theme */
+      color: #dbeafe; /* Set text color to light blue to match your theme */
+    }
+
+    .crypto-address {
+      box-shadow: 0 0px 15px rgba(9, 13, 19, 0.5);
+      font-size: 0.75rem;
+      font-family: 'Montserrat', sans-serif;
+      color: #93c5fd;
+      margin-top: 10px;
+      white-space: pre-wrap;
+      background-color: #1e293b;
+      padding: 10px;
+      border-radius: 8px;
+      font-family: monospace;
+    }
+
+    .kofi-btn {
+      box-shadow: 0 0px 15px rgba(255, 92, 142, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(255, 92, 142);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      transition: 0.2s ease;
+    }
+
+    .kofi-btn:hover {
+      background-color: #ff3c6e;
+      transform: scale(1.05);
+    }
+
+    .kofi-btn img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    .paypal-btn {
+      box-shadow: 0 0px 15px rgba(75, 115, 190, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(75, 115, 190);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      transition: 0.2s ease;
+    }
+
+    .paypal-btn:hover {
+      background-color: #4372c9;
+      transform: scale(1.05);
+    }
+
+    .paypal-btn img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    .cashapp-btn {
+      box-shadow: 0 0px 15px rgba(38, 160, 44, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(38, 160, 44);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      transition: 0.2s ease;
+    }
+
+    .cashapp-btn:hover {
+      background-color: #2ab131;
+      transform: scale(1.05);
+    }
+
+    .cashapp-btn img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    #donate {
+      flex-direction: row; /* Stack donation options vertically */
+      align-items: center;
+      gap: 1rem; /* Space between donation options */
+      margin: 0 auto;
+    }
+
+    /* Example content styles */
+    .content {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 20px;
+    }
+    
+    .page {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      width: 50%;
+      max-width: 1000px;
+      gap: 5rem;
+      animation: fadeIn 1.5s ease-in;
+      flex-grow: 1;
+    }
+
+    .page.active {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 50%;
+      max-width: 1000px;
+      gap: 5rem;
+      animation: fadeIn 1.5s ease-in;
+      flex-grow: 1;
+    }
+
     .left {
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      transform: scale(1.2);
+      animation: slideInRight 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .left h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 700;
       color: #0075C9;
-      animation: fadeInButtons 1s ease-in-out;
+      text-shadow: 0 0 8px rgba(0, 153, 255, 0.5);
     }
 
     .left p {
@@ -89,10 +325,11 @@
       display: flex;
       gap: 0.75rem;
       margin-top: 0.5rem;
-      animation: fadeInButtons 1s ease-in-out;
+
     }
 
     .btn {
+      box-shadow: 0 0 8px rgba(0, 153, 255, 0.5);
       font-family: 'Montserrat', sans-serif;
       padding: 0.6rem 1.2rem;
       border: none;
@@ -130,14 +367,28 @@
     }
 
     .right {
-      flex: 1.2;
+      flex: 1;
       display: flex;
       justify-content: right;
       align-items: right;
-      animation: fadeInRight 1s ease-in-out;
+      animation: slideInLeft 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .image-placeholder {
+      box-shadow: 0 0px 15px rgba(0, 153, 255, 0.5);
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: -1.5px;
+      border: 3px solid #0075C9;
+      border-radius: 14px;
+      background-color: transparent;
+      overflow: visible;
+    }
+
+    
+    .image-placeholder2 {
+      box-shadow: 0 0px 15px rgba(0, 153, 255, 0.5);
       display: inline-flex;
       justify-content: center;
       align-items: center;
@@ -146,25 +397,21 @@
       border-radius: 14px;
       background-color: transparent;
       overflow: hidden;
+      transform: scale(1.2);
     }
 
     .image-placeholder img {
       width: 100%;
       height: auto;
-      object-fit: contain;
+      object-fit: fill;
       border-radius: 0px;
     }
 
-    @keyframes fadeInImage {
-      0% {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
+    .image-placeholder2 img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 0px;
     }
 
     #copy-toast {
@@ -184,6 +431,97 @@
       transform: translateX(-50%);
     }
 
+    /* About Us page specific styles */
+    #about-us .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    #about-us .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      animation: slideInRight 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    #about-us h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #0075C9;
+    }
+
+    #about-us p {
+      font-size: 1rem;
+      color: #93c5fd;
+      line-height: 1.6;
+    }
+
+    #about-us .buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    #about-us .btn {
+      font-family: 'Montserrat', sans-serif;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    #about-us .btn-primary {
+      background-color: #0075C9;
+      color: #fff;
+    }
+
+    #about-us .btn-primary:hover {
+      background-color: #2563eb;
+      transform: scale(1.1);
+    }
+
+    #about-us .btn-secondary {
+      background-color: transparent;
+      color: #3b82f6;
+      border: 2px solid #3b82f6;
+    }
+
+    #about-us .btn-secondary:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+      transform: scale(1.1);
+    }
+
+    #about-us .right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: slideInLeft 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    #about-us .image-placeholder {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: -1.5px;
+      border: 3px solid #0075C9;
+      border-radius: 14px;
+      background-color: transparent;
+      overflow: hidden;
+    }
+
+    #about-us .image-placeholder img {
+      height: auto; /* Maintain aspect ratio */
+      object-fit: contain; /* Ensure the image doesn't stretch */
+      border-radius: 0px;
+      overflow: hidden;
+    }
+
     footer {
       text-align: center;
       color: #64748b;
@@ -198,24 +536,74 @@
       margin: 5px 0;
     }
 
-    @media (max-width: 500px) {
-      .container {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
+    /* ✅ mobile fix */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
       }
 
+      .container {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+      }
+
+      .left {
+        transform: scale(1);
+        width: 100%;
+      }
+
+      .left h1 {
+        font-size: 2rem;
+      }
+
+      .left p {
+        font-size: 0.95rem;
+      }
+
+      .buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        font-size: 1rem;
+      }
+
+      .right {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      .image-placeholder {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      .image-placeholder img {
+        width: 100%;
+        height: auto;
+      }
+
+      footer {
+        font-size: 0.75rem;
+        padding: 1rem 0;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="page active" id="tempest-hub">
     <div class="left">
       <h1>Tempest Hub</h1>
       <p>Roblox script built for TSB techs.<br />Powered by Rayfield.</p>
       <div class="buttons">
-        <button class="btn btn-primary" id="copy-btn">Get the Script</button>
+        <button class="btn btn-primary" id="copy-btn-main">Get the Script</button>
         <button class="btn btn-secondary" onclick="window.open('https://discord.gg/ewjaP4Q8dw', '_blank')">Join the
           Discord</button>
       </div>
@@ -228,22 +616,118 @@
     </div>
   </div>
 
+  <div class="page" id="legacy-script">
+    <div class="left">
+      <h1>Legacy Script</h1>
+      <p>This is the legacy version of the main script.<br />It won’t receive updates as it’s discontinued.<br />We recommend using Tempest Hub.</p>
+      <div class="buttons">
+        <button class="btn btn-primary" id="copy-btn-legacy">Get the Script</button>
+        <button class="btn btn-secondary" onclick="window.open('https://raw.githubusercontent.com/10tempest01/RobloxScripts/refs/heads/main/TSB/m1_reset_and_emote_dash.lua', '_blank')">View Source</button>
+      </div>
+      <div class="credit">Created by Tempest (@10.tempest.01)</div>
+    </div>
+    <div class="right">
+      <div class="image-placeholder2">
+        <img src="images/legacy_image@2x.png" alt="Tempest Image">
+      </div>
+    </div>
+  </div>
+
+  <div class="page" id="donate">
+    <!-- Crypto Donation Option -->
+    <div class="donation-option" id="cryptos">
+      <h2>Donate with Crypto</h2>
+      <label for="blockchain">Select Blockchain:</label>
+      <select id="blockchain" class="crypto-dropdown" onchange="updateCryptoAddress()">
+        <option value="default">Select</option>
+        <option value="ltc">Litecoin</option>
+        <option value="btc">Bitcoin</option>
+        <option value="eth">Ethereum</option>
+        <option value="xrp">XRP</option>
+        <option value="sol">Solana</option>
+        <!-- Add other blockchains here if needed -->
+      </select>
+
+      <p class="crypto-address" id="crypto-address">Please select a blockchain</p>
+    </div>
+
+    <!-- Donation Options -->
+    <div class="donation-option" id="others">
+      <h2>Other</h2>
+      <a href="https://ko-fi.com/frxiizl" class="kofi-btn" target="_blank">
+        <img src="images/kofi.png" alt="Ko-Fi Logo">
+        Support Us on Ko-Fi
+      </a>
+      <a href="https://www.paypal.com/paypalme/frxiizl" class="paypal-btn" target="_blank">
+        <img src="images/paypal.png" alt="PayPal Logo">
+        Support Us on PayPal
+      </a>
+      <a href="https://cash.app/$frxiizl" class="cashapp-btn" target="_blank">
+        <img src="images/cashapp.png" alt="CashApp Logo">
+        Support Us on CashApp
+      </a>
+    </div>
+  </div>
+
+
+
+  <div id="about-us" class="page">
+    <div class="container">
+      <div class="left">
+        <h1>About Us</h1>
+        <p>We are Tempest Softworks, a Roblox developer team based in the Kingdom of Saudi Arabia. Our mission is to provide high quality macros and  scripts for the Roblox TSB community.</p>
+        <p>Founded by passionate tech enthusiasts, Tempest Softworks is committed to pushing the boundaries of what’s possible. Our team is always exploring new ways to improve and grow, bringing innovative solutions to the table.</p>
+        <div class="buttons">
+          <button class="btn btn-primary" onclick="window.open('https://discord.gg/ewjaP4Q8dw', '_blank')">Join the Discord</button>
+          <button class="btn btn-secondary" onclick="showPage('tempest-hub')">Go Back to Tempest Hub</button>
+        </div>
+      </div>
+      <div class="right">
+        <div class="image-placeholder">
+          <img src="images/monsoon.png" alt="About Us Image">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <p style="font-size: 0.8rem; font-weight: bold;">Cybersecurity Professionals from the Kingdom of Saudi Arabia</p>
     <p style="font-size: 0.85rem;">© 2025 Tempest Softworks LLC. All rights reserved.</p>
   </footer>
 
-  <!-- Floating Notification -->
   <div id="copy-toast">✅ Script copied</div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tempHubSection = document.getElementById("tempest-hub");
+      const discontinuedSection = document.getElementById("discontinued-script");
+  
+      // Trigger scroll after a slight delay, which gives the page a chance to load.
+      window.addEventListener('scroll', () => {
+        let scrollPosition = window.scrollY;
+        
+        // When the Tempest Hub section leaves the viewport
+        if (scrollPosition + window.innerHeight > tempHubSection.offsetTop + tempHubSection.offsetHeight) {
+          // Smoothly scroll to the Discontinued section
+          discontinuedSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
+      });
+    });
+  </script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toast = document.getElementById('copy-toast');
-      const copyBtn = document.getElementById('copy-btn');
+      const copyBtn = document.getElementById('copy-btn-main');
+      const copyBtnLegacy = document.getElementById('copy-btn-legacy');
 
-      function copyScript() {
-        const script = `loadstring(game:HttpGet("https://raw.githubusercontent.com/10tempest01/tempest-hub/refs/heads/main/Launcher.lua"))()`;
+      const script = `loadstring(game:HttpGet("https://raw.githubusercontent.com/10tempest01/tempest-hub/refs/heads/main/Launcher.lua"))()`;
+      const legacyScript = `loadstring(game:HttpGet("https://raw.githubusercontent.com/10tempest01/RobloxScripts/refs/heads/main/TSB/m1_reset_and_emote_dash.lua"))()`;
 
+      function copyScriptMain() {
         if (navigator.clipboard) {
           navigator.clipboard.writeText(script).then(() => {
             if (toast && copyBtn) {
@@ -269,9 +753,98 @@
         }
       }
 
-      copyBtn.addEventListener('click', copyScript);
+      function copyScriptLegacy() {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(legacyScript).then(() => {
+            if (toast && copyBtn) {
+              const rect = copyBtnLegacy.getBoundingClientRect();
+              const x = rect.left + (rect.width / 2);
+              const y = rect.top - 40;
+
+              toast.style.left = `${x}px`;
+              toast.style.top = `${y}px`;
+              toast.style.transform = 'translateX(-50%)';
+              toast.style.opacity = '1';
+
+              setTimeout(() => {
+                toast.style.opacity = '0';
+              }, 2000);
+            }
+          }).catch((err) => {
+            console.error('Failed to copy: ', err);
+            alert('Failed to copy the script. Please try again.');
+          });
+        } else {
+          alert('Clipboard access is not supported in this browser.');
+        }
+      }
+
+
+      copyBtn.addEventListener('click', copyScriptMain);
+      copyBtnLegacy.addEventListener('click', copyScriptLegacy);
     });
   </script>
 </body>
+
+<div class="navbar">
+  <button class="selected" onclick="showPage('tempest-hub')">Tempest Hub</button>
+  <button onclick="showPage('legacy-script')">Legacy Script</button>
+  <button onclick="showPage('about-us')">About Us</button>
+  <button onclick="showPage('donate')">Donate</button>
+</div>
+
+  <script>
+    // Function to show the selected page and hide others
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active')); // Hide all pages
+
+      const selectedPage = document.getElementById(pageId);
+      selectedPage.classList.add('active'); // Show the selected page
+    }
+  </script>
+
+<script>
+  // Function to update the crypto address based on the selected blockchain
+  function updateCryptoAddress() {
+    const blockchain = document.getElementById("blockchain").value;
+    const cryptoAddress = document.getElementById("crypto-address");
+
+    // Update the crypto address based on the selected blockchain
+    switch (blockchain) {
+      case "default":
+        cryptoAddress.textContent = "Please select a blockchain";
+        break;
+      case "eth":
+        cryptoAddress.textContent = "0xF3E4c940cA7beA75Db7dfDEFeF8A277708559d77";
+        break;
+      case "btc":
+        cryptoAddress.textContent = "bc1qgtrqfv235qr6j5zryc20ktxxf53y90jeqtzpxt";
+        break;
+      case "ltc":
+        cryptoAddress.textContent = "LQrQsuX9Svb242MfQ7rAtGxG8h6mQUj123";
+        break;
+      case "xrp":
+        cryptoAddress.textContent = "rphykXhCGQAvUQQEKB64KcAg7oDNYnSmHC";
+        break;
+      case "sol":
+        cryptoAddress.textContent = "EWPRkYyZ8Wbef9snRUx4ezQ8vWoBv4DtDQ6ebLm2Md7M";
+      break;
+      default:
+        cryptoAddress.textContent = "Please select a blockchain";
+    }
+  }
+</script>
+
+<script>
+  const navbarBtns = document.querySelectorAll('.navbar button')
+
+  navbarBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      navbarBtns.forEach(b => b.classList.remove('selected'))
+      btn.classList.add('selected')
+    })
+  })
+</script>
 
 </html>
